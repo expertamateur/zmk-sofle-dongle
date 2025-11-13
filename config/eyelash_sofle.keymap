@@ -15,33 +15,33 @@
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 
 / {
-  zip_scroll_scaler: zip_scroll_scaler {
-    compatible = "zmk,input-processor-scaler";
-    #input-processor-cells = <2>;
-    type = <INPUT_EV_REL>;
-    codes = <INPUT_REL_WHEEL INPUT_REL_HWHEEL>;
-    track-remainders;
-  };
-};
-
-&mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
-
-&msc_input_listener { input-processors = <&zip_scroll_scaler 2 1>; };
-
-&msc {
-    acceleration-exponent = <1>;      // 0
-    time-to-max-speed-ms = <0>;       // 300
-    delay-ms = <0>;                   // 0
-};
-
-&mmv {
-    time-to-max-speed-ms = <500>;
-    acceleration-exponent = <1>;
-    trigger-period-ms = <16>;
-};
+    zip_scroll_scaler: zip_scroll_scaler {
+      compatible = "zmk,input-processor-scaler";
+      #input-processor-cells = <2>;
+      type = <INPUT_EV_REL>;
+      codes = <INPUT_REL_WHEEL INPUT_REL_HWHEEL>;
+      track-remainders;
+    };
 
 
-/ {
+    &mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
+    
+    &msc_input_listener { input-processors = <&zip_scroll_scaler 2 1>; };
+    
+    &msc {
+        acceleration-exponent = <1>;      // 0
+        time-to-max-speed-ms = <0>;       // 300
+        delay-ms = <0>;                   // 0
+    };
+    
+    &mmv {
+        time-to-max-speed-ms = <500>;
+        acceleration-exponent = <1>;
+        trigger-period-ms = <16>;
+    };
+    
+    
+    
 
     scroll_up_down: scroll_up_down {
         compatible = "zmk,behavior-sensor-rotate";
