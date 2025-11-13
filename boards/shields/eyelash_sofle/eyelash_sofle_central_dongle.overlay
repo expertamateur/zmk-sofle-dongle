@@ -11,6 +11,7 @@
     chosen {
         zmk,kscan = &mock_kscan;
         zephyr,display = &oled;
+        zephyr,console = &cdc_acm;
     };
     mock_kscan: kscan_1 {
         compatible = "zmk,kscan-mock";
@@ -56,4 +57,10 @@
         inversion-on;
         prechargep = <0x22>;
 	};
+};
+&usbd {
+    cdc_acm: cdc_acm {
+        compatible = "zephyr,cdc-acm-uart";
+        label = "CDC_ACM_0";
+    };
 };
