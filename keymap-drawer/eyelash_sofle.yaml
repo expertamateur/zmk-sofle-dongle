@@ -53,7 +53,7 @@ layers:
   - {t: ., s: '>'}
   - {t: /, s: '?'}
   - $$mdi:apple-keyboard-shift$$
-  - F24
+  - $$mdi:mouse-right-click-outline$$
   - LEFT WIN
   - $$mdi:apple-keyboard-option$$
   - '&ctrl_dance'
