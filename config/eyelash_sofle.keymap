@@ -2,10 +2,7 @@
 
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1200  // 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 25   // 10
-#include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/outputs.h>
-#include <dt-bindings/zmk/ext_power.h>
-#include <dt-bindings/zmk/rgb.h>
+
 #include <input/processors.dtsi>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
@@ -46,7 +43,16 @@
         bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
 
         label = "SCROLL_UP_DOWN";
-        tap-ms = <30>;
+        tap-ms = <100>;
+    };
+
+    scroll_rl: scroll_rl {
+        compatible = "zmk,behavior-sensor-rotate";
+        #sensor-binding-cells = <0>;
+        bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
+
+        tap-ms = <100>;
+        label = "SCROLL_RL";
     };
 
     ctrl_dance: ctrl_dance {
@@ -69,15 +75,6 @@
         flavor = "tap-preferred";
     };
 
-    scroll_rl: scroll_rl {
-        compatible = "zmk,behavior-sensor-rotate";
-        #sensor-binding-cells = <0>;
-        bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
-
-        tap-ms = <100>;
-        label = "SCROLL_RL";
-    };
-
     combos { compatible = "zmk,combos"; };
 
     behaviors {
@@ -92,7 +89,7 @@
 &kp TAB      &kp Q         &kp W     &kp E        &kp R                &kp T            &mmv MOVE_DOWN   &kp Y            &kp U            &kp I        &kp O     &kp P          &kp BSLH
 &lt 2 ENTER  &kp A         &kp S     &kp D        &kp F                &kp G            &mmv MOVE_LEFT   &kp H            &kp J            &kp K        &kp L     &kp SEMI       &kp APOS
 &kp LSHFT    &kp Z         &kp X     &kp C        &kp V                &kp B            &mmv MOVE_RIGHT  &kp N            &kp M            &kp COMMA    &kp DOT   &kp FSLH       &kp RIGHT_SHIFT
-&kp F24      &kp LEFT_WIN  &kp LALT  &ctrl_dance  &fn_tap 3 BACKSPACE  &fn_tap 0 DEL    &mkp LCLK        &fn_tap 0 ENTER  &fn_tap 1 SPACE  &ctrl_dance  &kp LALT  &kp RIGHT_WIN
+&mkp RCLK    &kp LEFT_WIN  &kp LALT  &ctrl_dance  &fn_tap 3 BACKSPACE  &fn_tap 0 DEL    &mkp LCLK        &fn_tap 0 ENTER  &fn_tap 1 SPACE  &ctrl_dance  &kp LALT  &kp RIGHT_WIN
             >;
 
             sensor-bindings = <&scroll_up_down>;
@@ -120,7 +117,7 @@
 &none   &trans     &trans      &trans     &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
             >;
 
-            sensor-bindings = <&scroll_rl>;
+            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
         fn_layer {
@@ -131,6 +128,8 @@
 &trans  &trans   &trans   &trans   &trans   &trans     &trans  &trans   &trans   &trans   &trans   &trans   &trans
 &trans  &trans   &trans   &trans   &trans   &trans     &trans  &trans   &trans   &trans   &trans   &trans
             >;
+
+            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
     };
 };
