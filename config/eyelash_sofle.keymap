@@ -89,7 +89,7 @@
 &kp TAB      &kp Q         &kp W     &kp E        &kp R                &kp T            &mmv MOVE_DOWN   &kp Y            &kp U            &kp I        &kp O     &kp P          &kp BSLH
 &lt 2 ENTER  &kp A         &kp S     &kp D        &kp F                &kp G            &mmv MOVE_LEFT   &kp H            &kp J            &kp K        &kp L     &kp SEMI       &kp APOS
 &kp LSHFT    &kp Z         &kp X     &kp C        &kp V                &kp B            &mmv MOVE_RIGHT  &kp N            &kp M            &kp COMMA    &kp DOT   &kp FSLH       &kp RIGHT_SHIFT
-&kp F24      &kp LEFT_WIN  &kp LALT  &ctrl_dance  &fn_tap 2 BACKSPACE  &fn_tap 3 DEL    &mkp LCLK        &fn_tap 0 ENTER  &fn_tap 1 SPACE  &ctrl_dance  &kp LALT  &kp RIGHT_WIN
+&kp F24      &kp LEFT_WIN  &kp LALT  &ctrl_dance  &fn_tap 3 BACKSPACE  &fn_tap 0 DEL    &mkp LCLK        &fn_tap 0 ENTER  &fn_tap 1 SPACE  &ctrl_dance  &kp LALT  &kp RIGHT_WIN
             >;
 
             sensor-bindings = <&scroll_up_down>;
@@ -98,11 +98,11 @@
 
         num_syb {
             bindings = <
-&kp GRAVE       &kp EXCL   &kp AT     &kp HASH   &kp DOLLAR  &kp PERCENT       &trans  &kp PLUS     &kp N7  &kp N8     &kp N9   &kp TILDE  &kp CARET
-&kp TILDE       &kp LT     &kp MINUS  &kp EQUAL  &kp GT      &kp TILDE         &trans  &kp MINUS    &kp N4  &kp N5     &kp N6   &kp AMPS   &kp PIPE
-&kp UNDERSCORE  &kp LBRC   &kp LBKT   &kp RBKT   &kp RBRC    &kp UNDERSCORE    &trans  &kp ASTRK    &kp N1  &kp N2     &kp N3   &kp COLON  &kp SQT
-&kp CARET       &kp COMMA  &kp LPAR   &kp RPAR   &kp SEMI    &kp DOLLAR        &trans  &kp PERCENT  &kp N0  &kp COMMA  &kp DOT  &kp FSLH   &trans
-&trans          &trans     &trans     &trans     &trans      &trans            &trans  &trans       &trans  &trans     &none    &none
+&kp GRAVE  &kp EXCL   &kp AT     &kp HASH   &kp DOLLAR  &kp PERCENT       &trans  &kp PLUS     &kp N7  &kp N8     &kp N9   &kp TILDE  &kp CARET
+&kp CARET  &kp LT     &kp MINUS  &kp EQUAL  &kp GT      &kp DOLLAR        &trans  &kp MINUS    &kp N4  &kp N5     &kp N6   &kp AMPS   &kp PIPE
+&kp TILDE  &kp LBRC   &kp LBKT   &kp RBKT   &kp RBRC    &kp UNDERSCORE    &trans  &kp ASTRK    &kp N1  &kp N2     &kp N3   &kp COLON  &kp SQT
+&none      &kp COMMA  &kp LPAR   &kp RPAR   &kp SEMI    &none             &trans  &kp PERCENT  &kp N0  &kp COMMA  &kp DOT  &kp FSLH   &none
+&trans     &trans     &trans     &trans     &trans      &trans            &trans  &trans       &trans  &trans     &none    &none
             >;
 
             sensor-bindings = <&scroll_rl>;
