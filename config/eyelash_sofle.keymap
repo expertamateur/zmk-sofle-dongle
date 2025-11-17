@@ -1,7 +1,7 @@
 // config/eyelash_sofle.keymap
 
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 1200  // 600
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 25   // 10
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 900  
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 45   
 
 #include <input/processors.dtsi>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
@@ -10,6 +10,10 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/rgb.h>
 / {
     zip_scroll_scaler: zip_scroll_scaler {
         compatible = "zmk,input-processor-scaler";
@@ -20,19 +24,19 @@
     };
 };
 
-&mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
+&mmv_input_listener { input-processors = <&zip_xy_scaler 1 1>; };
 
-&msc_input_listener { input-processors = <&zip_scroll_scaler 2 1>; };
+&msc_input_listener { input-processors = <&zip_scroll_scaler 1 1>; };
 
 &msc {
-    acceleration-exponent = <0>;      // 0
-    time-to-max-speed-ms = <0>;       // 300
-    delay-ms = <0>;                   // 0
+    acceleration-exponent = <1>;      
+    time-to-max-speed-ms = <300>;       
+    delay-ms = <0>;                   
 };
 
 &mmv {
-    time-to-max-speed-ms = <500>;
     acceleration-exponent = <1>;
+    time-to-max-speed-ms = <240>;
     trigger-period-ms = <16>;
 };
 
@@ -41,18 +45,16 @@
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
         bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
-
         label = "SCROLL_UP_DOWN";
-        tap-ms = <100>;
+        tap-ms = <40>;
     };
 
     scroll_rl: scroll_rl {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
         bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
-
-        tap-ms = <100>;
         label = "SCROLL_RL";
+        tap-ms = <40>;
     };
 
     ctrl_dance: ctrl_dance {
@@ -110,11 +112,11 @@
 
         direction {
             bindings = <
-&none   &none      &none       &none      &none   &none     &trans  &none   &none   &none   &none   &none   &none
-&none   &kp HOME   &kp UP      &kp END    &none   &none     &trans  &none   &none   &none   &none   &none   &none
-&none   &kp LEFT   &kp DOWN    &kp RIGHT  &none   &none     &trans  &none   &none   &none   &none   &none   &none
-&trans  &kp PG_UP  &kp INSERT  &kp PG_DN  &none   &none     &trans  &none   &none   &none   &none   &none   &trans
-&none   &trans     &trans      &trans     &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&none   &none      &none       &none      &none   &none     &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4 &bt BT_CLR
+&none   &kp HOME   &kp UP      &kp END    &none   &none     &trans  &sys_reset    &none         &kp C_POWER   &kp C_SLEEP   &none        &none
+&none   &kp LEFT   &kp DOWN    &kp RIGHT  &none   &none     &trans  &none         &none         &none         &none         &none        &none
+&trans  &kp PG_UP  &kp INSERT  &kp PG_DN  &none   &none     &trans  &none         &none         &none         &none         &none        &trans
+&none   &trans     &trans      &trans     &trans  &trans    &trans  &trans        &trans        &trans        &trans        &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
@@ -122,11 +124,11 @@
 
         fn_layer {
             bindings = <
-&trans  &kp F1   &kp F2   &kp F3   &kp F4   &kp F5     &trans  &kp F6   &kp F7   &kp F8   &kp F9   &kp F10  &trans
-&trans  &kp F11  &kp F12  &kp F13  &kp F14  &kp F15    &trans  &kp F16  &kp F17  &kp F18  &kp F19  &kp F20  &trans
-&trans  &kp F21  &kp F22  &kp F23  &kp F24  &trans     &trans  &trans   &trans   &trans   &trans   &trans   &trans
-&trans  &trans   &trans   &trans   &trans   &trans     &trans  &trans   &trans   &trans   &trans   &trans   &trans
-&trans  &trans   &trans   &trans   &trans   &trans     &trans  &trans   &trans   &trans   &trans   &trans
+&trans  &kp F1   &kp F2   &kp F3   &kp F4   &kp F5             &trans  &kp F6      &kp F7   &kp F8   &kp F9   &kp F10  &trans
+&trans  &kp F11  &kp F12  &kp F13  &kp F14  &kp F15            &trans  &kp F16     &kp F17  &kp F18  &kp F19  &kp F20  &trans
+&trans  &kp F21  &kp F22  &kp F23  &kp F24  &kp PRINTSCREEN    &trans  &kp K_MUTE  &trans   &trans   &trans   &trans   &trans
+&trans  &trans   &trans   &trans   &trans   &trans             &trans  &trans      &trans   &trans   &trans   &trans   &trans
+&trans  &trans   &trans   &trans   &trans   &trans             &trans  &trans      &trans   &trans   &trans   &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
