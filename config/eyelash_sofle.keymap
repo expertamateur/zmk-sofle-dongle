@@ -46,7 +46,7 @@
         #sensor-binding-cells = <0>;
         bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
         label = "SCROLL_UP_DOWN";
-        tap-ms = <20>;
+        tap-ms = <60>;
     };
 
     scroll_rl: scroll_rl {
@@ -54,7 +54,7 @@
         #sensor-binding-cells = <0>;
         bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
         label = "SCROLL_RL";
-        tap-ms = <20>;
+        tap-ms = <60>;
     };
 
     ctrl_dance: ctrl_dance {
