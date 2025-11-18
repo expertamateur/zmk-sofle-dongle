@@ -24,9 +24,9 @@
     };
 };
 
-&mmv_input_listener { input-processors = <&zip_xy_scaler 1 1>; };
+// &mmv_input_listener { input-processors = <&zip_xy_scaler 1 1>; };
 
-&msc_input_listener { input-processors = <&zip_scroll_scaler 1 1>; };
+// &msc_input_listener { input-processors = <&zip_scroll_scaler 1 1>; };
 
 &msc {
     acceleration-exponent = <1>;      
@@ -46,7 +46,7 @@
         #sensor-binding-cells = <0>;
         bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
         label = "SCROLL_UP_DOWN";
-        tap-ms = <60>;
+        tap-ms = <80>;
     };
 
     scroll_rl: scroll_rl {
@@ -54,7 +54,7 @@
         #sensor-binding-cells = <0>;
         bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
         label = "SCROLL_RL";
-        tap-ms = <60>;
+        tap-ms = <80>;
     };
 
     ctrl_dance: ctrl_dance {
