@@ -151,7 +151,7 @@ layers:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:backup-restore$$', type: bootloader}
+  - {t: '$$mdi:toggle-switch$$', h: '$$mdi:bluetooth$$', s: '$$mdi:usb$$'}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - $$mdi:power-standby$$
   - SLEEP
@@ -196,7 +196,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   fn:
-  - {t: '$$mdi:transfer$$', type: trans}
+  - F12
   - F1
   - F2
   - F3
@@ -208,8 +208,8 @@ layers:
   - F8
   - F9
   - F10
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - F11
+  - F12
   - F11
   - F12
   - F13
@@ -221,7 +221,7 @@ layers:
   - F18
   - F19
   - F20
-  - {t: '$$mdi:transfer$$', type: trans}
+  - F21
   - {t: '$$mdi:transfer$$', type: trans}
   - F21
   - F22
@@ -230,7 +230,7 @@ layers:
   - PRINTSCREEN
   - {t: '$$mdi:transfer$$', type: trans}
   - MUTE
-  - {t: '$$mdi:transfer$$', type: trans}
+  - '&shift_contrl_alt'
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
